@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.191" fx:controller="c_comboBox.ComboBoxController">
+   <children>
+      <Text layoutX="238.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exemplo de ComboBox" />
+      <ComboBox fx:id="cbSelecaoQualquer" layoutX="225.0" layoutY="92.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
