@@ -41,7 +41,7 @@ public class InicialController implements Initializable {
 
 	public void trataMenu(ActionEvent event) {
 		String menuClicado = ((MenuItem) event.getSource()).getText();
-		System.out.println(menuClicado);
+//		System.out.println(menuClicado);
 		for (Painel painel : listaDePaineis) {
 			if (painel.identificacao.equals(menuClicado))
 				borderPane.setCenter(carregaFXML(painel.FXML));
