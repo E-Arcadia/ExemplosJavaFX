@@ -26,6 +26,8 @@ public class InicialController implements Initializable {
 
 	private ArrayList<Painel> listaDePaineis = new ArrayList<>();
 
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		criaDadosListView();
