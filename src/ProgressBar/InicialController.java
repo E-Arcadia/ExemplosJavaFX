@@ -61,47 +61,50 @@ public class InicialController implements javafx.fxml.Initializable {
 
 	}
 
+	Task task = new Task<Void>() {
+		@Override
+		public Void call() {
+			final int max = 100000000;
+			int centena = 0;
+			for (int i = 1; i <= max; i++) {
+				if (isCancelled()) {
+					break;
+				}
+				updateProgress(i, max);
+
+				if (i % 100 == 0) {
+					updateMessage("Processados: " + ++centena);
+				}
+			}
+			return null;
+		}
+
+		@Override
+		protected void succeeded() {
+			super.succeeded();
+			updateMessage("Done!");
+		}
+
+		@Override
+		protected void cancelled() {
+			super.cancelled();
+			updateMessage("Cancelled!");
+		}
+
+		@Override
+		protected void failed() {
+			super.failed();
+			updateMessage("Failed!");
+		}
+	};
+	
+	
 	@FXML
 	private void Converter(ActionEvent event) {
 
 		btn_Converter.setDisable(true);
 
-		Task task = new Task<Void>() {
-			@Override
-			public Void call() {
-				final int max = 100000000;
-				int centena = 0;
-				for (int i = 1; i <= max; i++) {
-					if (isCancelled()) {
-						break;
-					}
-					updateProgress(i, max);
-
-					if (i % 100 == 0) {
-						updateMessage("Processados: " + ++centena);
-					}
-				}
-				return null;
-			}
-
-			@Override
-			protected void succeeded() {
-				super.succeeded();
-				updateMessage("Done!");
-			}
-
-			@Override
-			protected void cancelled() {
-				super.cancelled();
-				updateMessage("Cancelled!");
-			}
-
-			@Override
-			protected void failed() {
-				super.failed();
-				updateMessage("Failed!");
-			}
-		};
+		
 
 		task.messageProperty().addListener(new ChangeListener<String>() {
 			@Override
